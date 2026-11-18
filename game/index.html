@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Port Solano — an open-world crime game</title>
+<link rel="stylesheet" href="./css/style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.min.js" } }
+</script>
+</head>
+<body>
+<div id="game"></div>
+
+<!-- HUD -->
+<div id="hud" class="hidden-until-start">
+  <div id="top-left">
+    <div id="money">$40</div>
+    <div id="mission">Mission 1 — First Fare</div>
+    <div id="mission-row"><span id="mission-dist">0 m</span><span id="objective"></span></div>
+    <div id="wanted" title="Wanted level"></div>
+  </div>
+  <div id="top-right">
+    <div id="clock">00:00</div>
+    <div id="packages">PKG 0/8</div>
+    <div id="station">RADIO OFF</div>
+  </div>
+  <div id="message"></div>
+  <div id="bottom-right">
+    <canvas id="minimap" width="168" height="168"></canvas>
+    <div id="speed-box"><span id="speed">0</span><span id="speed-unit">km/h</span></div>
+  </div>
+  <div id="bottom-left">
+    <div id="ammo">Ammo 24 • F punch • Click shoot</div>
+    <div id="hint">WASD move • Shift run • E enter car • F punch • Click shoot • P pause</div>
+  </div>
+</div>
+<div id="webgl-error" class="hidden"></div>
+
+<!-- Start screen -->
+<div id="start-screen">
+  <div class="panel">
+    <h1>PORT SOLANO</h1>
+    <p class="tagline">A sun-soaked open-world crime story. You are Rico Vega — broke, fast, and out of options.</p>
+    <ul class="missions-list">
+      <li><b>1. First Fare</b> — pick up a passenger, drop them at the Night Market. <span>$150</span></li>
+      <li><b>2. Hot Wheels</b> — steal the red Comet GT and deliver it to the lockup. <span>$300</span></li>
+      <li><b>3. The Drop</b> — run a package to Pier 9 before the boat leaves. <span>$500</span></li>
+    </ul>
+    <p class="side">Side gig: collect 8 Solano Packages around the city — $25 each. Steal cars, dodge the Solano PD, watch the stars.</p>
+    <button id="start-btn">START ENGINE</button>
+    <p class="controls">WASD move/drive • Mouse look • E enter/exit car • F punch • Click shoot • H horn • R radio • Shift run • Space brake • P pause</p>
+    <button id="mute-btn" class="small">Sound: ON</button>
+    <p class="fine">An original game. No real city, person, brand or game is depicted. Progress saves in your browser.</p>
+  </div>
+</div>
+
+<!-- Pause screen -->
+<div id="pause-screen" class="hidden">
+  <div class="panel">
+    <h1>PAUSED</h1>
+    <p id="pause-stats"></p>
+    <button id="resume-btn">RESUME</button>
+    <button id="restart-btn" class="small">RESTART FROM SAVE</button>
+    <button id="newgame-btn" class="small">NEW GAME (WIPE SAVE)</button>
+  </div>
+</div>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
